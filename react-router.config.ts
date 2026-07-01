@@ -1,7 +1,7 @@
 import type { Config } from "@react-router/dev/config";
 
 export default {
-  // Config options...
+  basename: "/jayanthan.fyi/",
   // Server-side render by default, to enable SPA mode set this to `false`
-  ssr: true,
+  ssr: false,
 } satisfies Config;
