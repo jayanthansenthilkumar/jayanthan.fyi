@@ -91,12 +91,12 @@ export default function Home() {
                 <div className="relative z-10 flex-1 flex items-center justify-center w-full">
                   <svg viewBox="0 0 380 380" className="w-full max-w-[380px] h-auto overflow-visible">
                     {[
-                      { name: "Gen AI & LLMs", value: 95 },
-                      { name: "ML & DL", value: 90 },
-                      { name: "Agentic Systems", value: 85 },
-                      { name: "Data Eng", value: 75 },
-                      { name: "Vision", value: 70 },
-                      { name: "NLP", value: 80 },
+                      { name: "Machine Learning", value: 95 },
+                      { name: "Deep Learning", value: 90 },
+                      { name: "Generative AI", value: 85 },
+                      { name: "NLP", value: 85 },
+                      { name: "Computer Vision", value: 80 },
+                      { name: "AI Agents", value: 75 },
                     ].map((skill, i) => {
                       const centerX = 190;
                       const centerY = 190;
