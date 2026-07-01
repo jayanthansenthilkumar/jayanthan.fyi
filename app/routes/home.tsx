@@ -3,7 +3,7 @@ import { Terminal, Code2, Cpu, User, FolderGit2, FileText, Mail, ArrowRight, Ext
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({ }: Route.MetaArgs) {
   return [
     { title: "Jayanthan Senthilkumar | AI & ML Engineer" },
     { name: "description", content: "Portfolio of Jayanthan Senthilkumar - AI & ML Engineer." },
@@ -49,139 +49,139 @@ export default function Home() {
       <div className="relative w-full border-b border-[#E5E0D0]">
         {/* Subtle Graph Paper Background */}
         <div className="absolute inset-0 z-0 opacity-30 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#E5E0D0 1px, transparent 1px), linear-gradient(90deg, #E5E0D0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        
+
         <section className="relative z-10 pt-16 pb-20 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-        >
-          {/* Left Column: Name & Education */}
-          <div>
-            <div className="uppercase tracking-[0.2em] text-[#EA580C] font-bold text-xs md:text-sm mb-6 font-sans flex items-center space-x-2">
-              <span className="w-4 h-[2px] bg-[#EA580C]"></span>
-              <span>AI & ML Engineer</span>
-            </div>
-            <h1 className="text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8">
-              <span className="italic text-[#EA580C]">Jayanthan</span><br />
-              Senthilkumar
-            </h1>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans font-light max-w-lg mb-10">
-              Incoming Master's student in AI & ML at <span className="font-medium text-[#0F172A]">Adelaide University, Australia</span>. B.Tech graduate in Artificial Intelligence and Machine Learning.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#projects" className="px-7 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-md hover:shadow-lg text-base flex items-center space-x-2">
-                <span>View Projects</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
-              <a href="#contact" className="px-7 py-3.5 rounded-full bg-transparent border border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white font-medium transition-all text-base flex items-center space-x-2">
-                <span>Contact Me</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Right Column: Advanced Visualization */}
-          <div className="flex flex-col lg:pl-12 lg:border-l border-[#E5E0D0] justify-center pt-8 lg:pt-0">
-            <div className="bg-transparent p-4 md:p-6 relative overflow-visible group flex items-center justify-center min-h-[500px]">
-              {/* Decorative background glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-[#EA580C]/10 blur-[80px] rounded-full transition-colors duration-700 pointer-events-none"></div>
-              
-              {/* Radial Equalizer / Sci-Fi HUD Visualization */}
-              <div className="relative z-10 flex-1 flex items-center justify-center w-full scale-110 md:scale-125 transform origin-center">
-                <svg viewBox="0 0 380 380" className="w-full max-w-[480px] h-auto overflow-visible">
-                  {[
-                    { name: "Gen AI & LLMs", value: 95 },
-                    { name: "ML & DL", value: 90 },
-                    { name: "Agentic Systems", value: 85 },
-                    { name: "Data Eng", value: 75 },
-                    { name: "Vision", value: 70 },
-                    { name: "NLP", value: 80 },
-                  ].map((skill, i) => {
-                    const centerX = 190;
-                    const centerY = 190;
-                    const INNER_RADIUS = 40;
-                    const NUM_BANDS = 10;
-                    const BAND_WIDTH = 6;
-                    const BAND_GAP = 4;
-                    
-                    const angleStart = (i * 60 - 90 + 6) * (Math.PI / 180);
-                    const angleEnd = (i * 60 - 90 + 54) * (Math.PI / 180);
-                    const midAngle = (i * 60 - 90 + 30) * (Math.PI / 180);
-
-                    const labelRadius = INNER_RADIUS + NUM_BANDS * (BAND_WIDTH + BAND_GAP) + 15;
-                    const textX = centerX + labelRadius * Math.cos(midAngle);
-                    const textY = centerY + labelRadius * Math.sin(midAngle);
-                    
-                    const anchor = Math.cos(midAngle) > 0.1 ? "start" : Math.cos(midAngle) < -0.1 ? "end" : "middle";
-                    const baseline = Math.sin(midAngle) > 0.1 ? "hanging" : Math.sin(midAngle) < -0.1 ? "bottom" : "middle";
-
-                    return (
-                      <g key={skill.name}>
-                        {/* Segmented Arcs */}
-                        {Array.from({ length: NUM_BANDS }).map((_, j) => {
-                          const r = INNER_RADIUS + j * (BAND_WIDTH + BAND_GAP);
-                          const x1 = centerX + r * Math.cos(angleStart);
-                          const y1 = centerY + r * Math.sin(angleStart);
-                          const x2 = centerX + r * Math.cos(angleEnd);
-                          const y2 = centerY + r * Math.sin(angleEnd);
-                          
-                          const isActive = j * 10 < skill.value;
-                          const isGlow = j * 10 >= skill.value - 10 && j * 10 < skill.value;
-
-                          return (
-                            <motion.path
-                              key={j}
-                              initial={{ opacity: 0, pathLength: 0 }}
-                              animate={{ opacity: 1, pathLength: 1 }}
-                              transition={{ duration: 0.5, delay: 0.1 * j + 0.1 * i, ease: "easeOut" }}
-                              d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
-                              fill="none"
-                              stroke={isActive ? "#EA580C" : "#E2E8F0"}
-                              strokeWidth={BAND_WIDTH}
-                              strokeLinecap="round"
-                              className={isGlow ? "drop-shadow-[0_0_8px_rgba(234,88,12,0.5)]" : ""}
-                            />
-                          );
-                        })}
-                        
-                        {/* Text Label */}
-                        <motion.text
-                          initial={{ opacity: 0, filter: "blur(4px)" }}
-                          animate={{ opacity: 1, filter: "blur(0px)" }}
-                          transition={{ duration: 0.8, delay: 1.2 + i * 0.1 }}
-                          x={textX}
-                          y={textY}
-                          fill="#475569"
-                          fontSize="11"
-                          fontFamily="monospace"
-                          fontWeight="600"
-                          letterSpacing="0.05em"
-                          textAnchor={anchor}
-                          dominantBaseline={baseline}
-                        >
-                          <tspan x={textX} dy="0">{skill.name}</tspan>
-                          <tspan x={textX} dy="14" fill="#EA580C" fontWeight="bold">{skill.value}%</tspan>
-                        </motion.text>
-                      </g>
-                    );
-                  })}
-                  
-                  {/* Core Center Pulse */}
-                  <motion.circle 
-                    cx={190} cy={190} r={15} 
-                    fill="#EA580C" 
-                    className="drop-shadow-[0_0_15px_rgba(234,88,12,0.6)]"
-                    animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
-                    transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                  />
-                  <circle cx={190} cy={190} r={6} fill="#F6F4EB" />
-                </svg>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          >
+            {/* Left Column: Name & Education */}
+            <div>
+              <div className="uppercase tracking-[0.2em] text-[#EA580C] font-bold text-xs md:text-sm mb-6 font-sans flex items-center space-x-2">
+                <span className="w-4 h-[2px] bg-[#EA580C]"></span>
+                <span>AI & ML Engineer</span>
+              </div>
+              <h1 className="text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8">
+                <span className="italic text-[#EA580C]">Jayanthan</span><br />
+                Senthilkumar
+              </h1>
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans font-light max-w-lg mb-10">
+                Incoming Master's student in AI & ML at <span className="font-medium text-[#0F172A]">Adelaide University, Australia</span>. B.Tech graduate in Artificial Intelligence and Machine Learning.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <a href="#projects" className="px-7 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-md hover:shadow-lg text-base flex items-center space-x-2">
+                  <span>View Projects</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+                <a href="#contact" className="px-7 py-3.5 rounded-full bg-transparent border border-[#0F172A] text-[#0F172A] hover:bg-[#0F172A] hover:text-white font-medium transition-all text-base flex items-center space-x-2">
+                  <span>Contact Me</span>
+                </a>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </section>
+
+            {/* Right Column: Advanced Visualization */}
+            <div className="flex flex-col lg:pl-12 lg:border-l border-[#E5E0D0] justify-center pt-8 lg:pt-0">
+              <div className="bg-transparent p-4 md:p-6 relative overflow-visible group flex items-center justify-center min-h-[400px]">
+                {/* Decorative background glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#EA580C]/10 blur-[80px] rounded-full transition-colors duration-700 pointer-events-none"></div>
+
+                {/* Radial Equalizer / Sci-Fi HUD Visualization */}
+                <div className="relative z-10 flex-1 flex items-center justify-center w-full">
+                  <svg viewBox="0 0 380 380" className="w-full max-w-[380px] h-auto overflow-visible">
+                    {[
+                      { name: "Gen AI & LLMs", value: 95 },
+                      { name: "ML & DL", value: 90 },
+                      { name: "Agentic Systems", value: 85 },
+                      { name: "Data Eng", value: 75 },
+                      { name: "Vision", value: 70 },
+                      { name: "NLP", value: 80 },
+                    ].map((skill, i) => {
+                      const centerX = 190;
+                      const centerY = 190;
+                      const INNER_RADIUS = 40;
+                      const NUM_BANDS = 10;
+                      const BAND_WIDTH = 6;
+                      const BAND_GAP = 4;
+
+                      const angleStart = (i * 60 - 90 + 6) * (Math.PI / 180);
+                      const angleEnd = (i * 60 - 90 + 54) * (Math.PI / 180);
+                      const midAngle = (i * 60 - 90 + 30) * (Math.PI / 180);
+
+                      const labelRadius = INNER_RADIUS + NUM_BANDS * (BAND_WIDTH + BAND_GAP) + 15;
+                      const textX = centerX + labelRadius * Math.cos(midAngle);
+                      const textY = centerY + labelRadius * Math.sin(midAngle);
+
+                      const anchor = Math.cos(midAngle) > 0.1 ? "start" : Math.cos(midAngle) < -0.1 ? "end" : "middle";
+                      const baseline = Math.sin(midAngle) > 0.1 ? "hanging" : Math.sin(midAngle) < -0.1 ? "bottom" : "middle";
+
+                      return (
+                        <g key={skill.name}>
+                          {/* Segmented Arcs */}
+                          {Array.from({ length: NUM_BANDS }).map((_, j) => {
+                            const r = INNER_RADIUS + j * (BAND_WIDTH + BAND_GAP);
+                            const x1 = centerX + r * Math.cos(angleStart);
+                            const y1 = centerY + r * Math.sin(angleStart);
+                            const x2 = centerX + r * Math.cos(angleEnd);
+                            const y2 = centerY + r * Math.sin(angleEnd);
+
+                            const isActive = j * 10 < skill.value;
+                            const isGlow = j * 10 >= skill.value - 10 && j * 10 < skill.value;
+
+                            return (
+                              <motion.path
+                                key={j}
+                                initial={{ opacity: 0, pathLength: 0 }}
+                                animate={{ opacity: 1, pathLength: 1 }}
+                                transition={{ duration: 0.5, delay: 0.1 * j + 0.1 * i, ease: "easeOut" }}
+                                d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                                fill="none"
+                                stroke={isActive ? "#EA580C" : "#E2E8F0"}
+                                strokeWidth={BAND_WIDTH}
+                                strokeLinecap="round"
+                                className={isGlow ? "drop-shadow-[0_0_8px_rgba(234,88,12,0.5)]" : ""}
+                              />
+                            );
+                          })}
+
+                          {/* Text Label */}
+                          <motion.text
+                            initial={{ opacity: 0, filter: "blur(4px)" }}
+                            animate={{ opacity: 1, filter: "blur(0px)" }}
+                            transition={{ duration: 0.8, delay: 1.2 + i * 0.1 }}
+                            x={textX}
+                            y={textY}
+                            fill="#475569"
+                            fontSize="11"
+                            fontFamily="monospace"
+                            fontWeight="600"
+                            letterSpacing="0.05em"
+                            textAnchor={anchor}
+                            dominantBaseline={baseline}
+                          >
+                            <tspan x={textX} dy="0">{skill.name}</tspan>
+                            <tspan x={textX} dy="14" fill="#EA580C" fontWeight="bold">{skill.value}%</tspan>
+                          </motion.text>
+                        </g>
+                      );
+                    })}
+
+                    {/* Core Center Pulse */}
+                    <motion.circle
+                      cx={190} cy={190} r={15}
+                      fill="#EA580C"
+                      className="drop-shadow-[0_0_15px_rgba(234,88,12,0.6)]"
+                      animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+                      transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+                    />
+                    <circle cx={190} cy={190} r={6} fill="#F6F4EB" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
       </div>
 
       {/* 2. ABOUT SECTION */}
@@ -228,7 +228,7 @@ export default function Home() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {featuredProjects.map(project => (
             <div key={project.title} className="group relative bg-[#FAF7F2] border border-[#E5E0D0] rounded-2xl p-10 hover:border-[#EA580C]/50 hover:shadow-xl transition-all flex flex-col shadow-sm">
@@ -284,7 +284,7 @@ export default function Home() {
                   <p className="font-sans font-bold tracking-[0.2em] text-[#0F172A] uppercase text-[10px] mt-3">Read Now</p>
                 </div>
               </div>
-              
+
               {/* Content Block */}
               <div className="md:w-[70%] p-5 md:p-6 flex flex-col justify-between">
                 <div>
