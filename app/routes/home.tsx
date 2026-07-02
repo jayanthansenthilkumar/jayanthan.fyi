@@ -30,7 +30,7 @@ export default function Home() {
   const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jayanthansenthilkumar")
+    fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(`https://medium.com/feed/@jayanthansenthilkumar?t=${Date.now()}`)}`)
       .then(res => res.json())
       .then(data => {
         if (data.items) {
