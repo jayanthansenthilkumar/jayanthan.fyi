@@ -31,7 +31,7 @@ export default function Blogs() {
   }, []);
 
   return (
-    <div className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-32">
+    <div className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Blogs() {
         </p>
       </motion.div>
 
-      <div className="space-y-8">
+      <div>
         {isLoading ? (
           <div className="text-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#EA580C] mx-auto"></div>
@@ -60,63 +60,72 @@ export default function Blogs() {
             No articles found.
           </div>
         ) : (
-          posts.map((post, index) => (
-            <motion.div
-              key={post.guid || index}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <article className="flex flex-col md:flex-row bg-[#FAF7F2] border border-[#E5E0D0] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group relative">
-                {/* Image Block */}
-                <div className="md:w-[30%] min-h-[160px] md:min-h-full bg-[#E5E0D0] relative border-b md:border-b-0 md:border-r border-[#E5E0D0] flex flex-col justify-center items-center overflow-hidden">
-                  {post.thumbnail ? (
-                    <img src={post.thumbnail} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-[#E5E0D0] opacity-50"></div>
-                      <div className="relative z-10 text-center">
-                        <h3 className="font-serif text-2xl md:text-3xl text-[#0F172A] leading-none mb-1">Jayanthan</h3>
-                        <p className="font-serif italic text-xl text-[#EA580C]">Insights</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {posts.map((post, index) => (
+              <motion.div
+                key={post.guid || index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="h-full"
+              >
+                <article className="flex flex-col md:flex-row bg-[#FAF7F2] border border-[#E5E0D0] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group relative h-full">
+                  {/* Image Block */}
+                  <div className="md:w-[40%] min-h-[200px] md:min-h-full bg-[#E5E0D0] relative border-b md:border-b-0 md:border-r border-[#E5E0D0] flex flex-col justify-center items-center overflow-hidden shrink-0">
+                    {post.thumbnail ? (
+                      <img src={post.thumbnail} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-[#E5E0D0] opacity-50"></div>
+                        <div className="relative z-10 text-center">
+                          <h3 className="font-serif text-2xl md:text-3xl text-[#0F172A] leading-none mb-1">Jayanthan</h3>
+                          <p className="font-serif italic text-xl text-[#EA580C]">Insights</p>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  
+                  {/* Content Block */}
+                  <div className="md:w-[60%] p-5 md:p-6 flex flex-col justify-between flex-1">
+                    <div>
+                      <div className="text-[#EA580C] font-sans font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 flex items-center">
+                        <span>{new Date(post.pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
                       </div>
-                    </>
-                  )}
-                </div>
-                
-                {/* Content Block */}
-                <div className="md:w-[70%] p-5 md:p-6 flex flex-col justify-between">
-                  <div>
-                    <div className="text-[#EA580C] font-sans font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 flex items-center">
-                      <span>{new Date(post.pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                      <h3 className="text-xl font-serif text-[#0F172A] mb-2 group-hover:text-[#EA580C] transition-colors leading-tight">
+                        <Link 
+                          to={`/blogs/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} 
+                          className="before:absolute before:inset-0"
+                        >
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <div className="flex items-center space-x-2 text-slate-500 text-sm mb-3">
+                        <User className="w-4 h-4" />
+                        <span>{post.author || "Jayanthan Senthilkumar"}</span>
+                      </div>
+                      <p className="text-slate-600 font-sans font-light leading-relaxed mb-4 text-sm line-clamp-3">
+                        {post.description.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ')}
+                      </p>
                     </div>
-                    <h3 className="text-xl md:text-2xl font-serif text-[#0F172A] mb-2 group-hover:text-[#EA580C] transition-colors leading-tight">
-                      <a href={post.link} target="_blank" rel="noreferrer" className="before:absolute before:inset-0">
-                        {post.title}
-                      </a>
-                    </h3>
-                    <div className="flex items-center space-x-2 text-slate-500 text-sm mb-3">
-                      <User className="w-4 h-4" />
-                      <span>{post.author || "Jayanthan Senthilkumar"}</span>
+                    <div className="flex justify-between items-center border-t border-[#E5E0D0] pt-4 mt-2 relative z-20">
+                      <div className="flex flex-wrap gap-2">
+                        {post.categories && post.categories.slice(0, 2).map((category: string) => (
+                          <span key={category} className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] font-medium uppercase tracking-wider">{category}</span>
+                        ))}
+                      </div>
+                      <Link 
+                        to={`/blogs/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} 
+                        className="flex items-center space-x-1 text-[#EA580C] hover:text-[#C2410C] text-[10px] font-bold tracking-[0.1em] uppercase transition-colors shrink-0 ml-2"
+                      >
+                        <span className="hidden sm:inline">Read Article</span>
+                        <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                      </Link>
                     </div>
-                    <p className="text-slate-600 font-sans font-light leading-relaxed mb-4 text-sm md:text-base line-clamp-3">
-                      {post.description.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ')}
-                    </p>
                   </div>
-                  <div className="flex justify-between items-center border-t border-[#E5E0D0] pt-4 mt-2 relative z-20">
-                    <div className="flex flex-wrap gap-2">
-                      {post.categories && post.categories.slice(0, 3).map((category: string) => (
-                        <span key={category} className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] md:text-xs font-medium uppercase tracking-wider">{category}</span>
-                      ))}
-                    </div>
-                    <a href={post.link} target="_blank" rel="noreferrer" className="flex items-center space-x-1 text-[#EA580C] hover:text-[#C2410C] text-[10px] md:text-xs font-bold tracking-[0.1em] uppercase transition-colors">
-                      <span>Read on Medium</span>
-                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-                    </a>
-                  </div>
-                </div>
-              </article>
-            </motion.div>
-          ))
+                </article>
+              </motion.div>
+            ))}
+          </div>
         )}
       </div>
 

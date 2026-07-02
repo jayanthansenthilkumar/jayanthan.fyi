@@ -11,41 +11,55 @@ export function meta({ params }: Route.MetaArgs) {
   ];
 }
 
+import { useState, useEffect } from "react";
+
 export default function Article() {
   const { slug } = useParams();
+  const [article, setArticle] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Mocking an article to render for any slug
-  const article = {
-    title: slug?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) || "Architecting for Scale: A Deep Dive into Event-Driven Systems",
-    date: "2024-05-12",
-    readTime: "8 min read",
-    content: `
-      <p>Modern applications are increasingly moving towards distributed, event-driven architectures. This transition allows systems to handle greater scale, improve decoupling between services, and provide real-time capabilities that traditional request-response patterns struggle to achieve.</p>
-      
-      <h2>The Core Philosophy</h2>
-      <p>At the heart of an event-driven system is the concept of a state change. Instead of a service explicitly telling another service what to do, it simply announces that something has happened. Other services, which have subscribed to these events, then react accordingly.</p>
-      <p>This fundamentally shifts the architectural coupling from <em>orchestration</em> (a central controller directing actions) to <em>choreography</em> (services acting independently based on events).</p>
-      
-      <blockquote>
-        "Event-driven architecture is not just a technical implementation; it's a paradigm shift in how we model business domains."
-      </blockquote>
+  useEffect(() => {
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jayanthansenthilkumar")
+      .then(res => res.json())
+      .then(data => {
+        if (data.items) {
+          // Find the article by matching the generated slug
+          const foundArticle = data.items.find((item: any) => 
+            item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug
+          );
+          setArticle(foundArticle || null);
+        }
+        setIsLoading(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch article", err);
+        setIsLoading(false);
+      });
+  }, [slug]);
 
-      <h2>Common Pitfalls</h2>
-      <p>While the benefits are substantial, developers often fall into several traps when first adopting this pattern:</p>
-      <ul>
-        <li><strong>Event Sourcing vs. Event Notification:</strong> Confusing a lightweight notification with a fully-hydrated domain event can lead to excessive API calls back to the source system.</li>
-        <li><strong>Eventual Consistency:</strong> Failing to design user interfaces that handle the lag between an action and its confirmed side-effects.</li>
-        <li><strong>Schema Evolution:</strong> Modifying event structures without backwards compatibility, breaking downstream consumers.</li>
-      </ul>
+  if (isLoading) {
+    return (
+      <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#EA580C] mx-auto"></div>
+          <p className="mt-4 text-slate-500 font-sans">Loading article...</p>
+        </div>
+      </div>
+    );
+  }
 
-      <h2>Strategies for Robust Data Streaming</h2>
-      <p>To build a system that scales linearly without constant firefighting, consider these approaches:</p>
-      <p>1. <strong>Idempotent Consumers:</strong> Ensure that processing the same event multiple times does not result in corrupted state. This allows for safe retries during transient failures.</p>
-      <p>2. <strong>Dead Letter Queues (DLQs):</strong> Always have a fallback mechanism for events that cannot be processed after a reasonable number of retries.</p>
-      
-      <p>By treating events as first-class citizens in your architecture, you lay the groundwork for systems that are resilient, scalable, and adaptable to future business requirements.</p>
-    `
-  };
+  if (!article) {
+    return (
+      <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen text-center">
+        <h1 className="text-4xl font-serif text-[#0F172A] mb-4">Article Not Found</h1>
+        <p className="text-slate-500 font-sans mb-8">We couldn't find the article you're looking for.</p>
+        <Link to="/blogs" className="inline-flex items-center space-x-2 text-[#EA580C] hover:text-[#C2410C] font-medium uppercase tracking-wider text-sm">
+          <ArrowLeft className="w-4 h-4" />
+          <span>Back to Articles</span>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen">
@@ -62,12 +76,12 @@ export default function Article() {
         <div className="flex items-center space-x-4 text-sm font-sans text-slate-500 mb-6 uppercase tracking-wider">
           <div className="flex items-center space-x-1">
             <Calendar className="w-4 h-4" />
-            <span>{article.date}</span>
+            <span>{new Date(article.pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
           </div>
           <span className="text-[#E5E0D0]">|</span>
           <div className="flex items-center space-x-1 text-[#EA580C]">
             <Clock className="w-4 h-4" />
-            <span>{article.readTime}</span>
+            <span>{Math.max(1, Math.ceil(article.content.split(' ').length / 200))} min read</span>
           </div>
         </div>
 
@@ -78,11 +92,11 @@ export default function Article() {
         <div className="flex items-center justify-between border-y border-[#E5E0D0] py-4 mb-12">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-full bg-[#EA580C] flex items-center justify-center text-white font-serif font-bold text-lg">
-              JS
+              {article.author ? article.author.split(' ').map((n: string) => n[0]).join('').substring(0, 2) : "JS"}
             </div>
             <div>
-              <p className="font-serif text-[#0F172A] font-medium leading-tight">John Smith</p>
-              <p className="text-slate-500 text-sm font-sans">Software Engineer</p>
+              <p className="font-serif text-[#0F172A] font-medium leading-tight">{article.author || "Jayanthan Senthilkumar"}</p>
+              <p className="text-slate-500 text-sm font-sans">Author</p>
             </div>
           </div>
           <button className="p-2 rounded-full border border-[#E5E0D0] hover:border-[#EA580C] hover:text-[#EA580C] text-slate-500 transition-colors">
@@ -93,11 +107,16 @@ export default function Article() {
         {/* Article Body Content */}
         <div 
           className="font-sans font-light text-lg text-slate-700 leading-relaxed space-y-6 
+            [&>h1]:font-serif [&>h1]:text-4xl [&>h1]:text-[#0F172A] [&>h1]:mt-12 [&>h1]:mb-6
             [&>h2]:font-serif [&>h2]:text-3xl [&>h2]:text-[#0F172A] [&>h2]:mt-12 [&>h2]:mb-6
+            [&>h3]:font-serif [&>h3]:text-2xl [&>h3]:text-[#0F172A] [&>h3]:mt-8 [&>h3]:mb-4
             [&>p]:mb-6
             [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul>li]:mb-3
-            [&>blockquote]:border-l-4 [&>blockquote]:border-[#EA580C] [&>blockquote]:pl-6 [&>blockquote]:py-2 [&>blockquote]:my-8 [&>blockquote]:font-serif [&>blockquote]:text-2xl [&>blockquote]:italic [&>blockquote]:text-[#0F172A]"
-          dangerouslySetInnerHTML={{ __html: article.content }}
+            [&>ol]:list-decimal [&>ol]:pl-6 [&>ol]:mb-6 [&>ol>li]:mb-3
+            [&>blockquote]:border-l-4 [&>blockquote]:border-[#EA580C] [&>blockquote]:pl-6 [&>blockquote]:py-2 [&>blockquote]:my-8 [&>blockquote]:font-serif [&>blockquote]:text-2xl [&>blockquote]:italic [&>blockquote]:text-[#0F172A]
+            [&_img]:rounded-xl [&_img]:my-8 [&_img]:w-full [&_img]:h-auto
+            [&_a]:text-[#EA580C] [&_a]:underline"
+          dangerouslySetInnerHTML={{ __html: article.content || article.description }}
         />
         
         <div className="mt-16 pt-8 border-t border-[#E5E0D0] flex justify-between items-center">

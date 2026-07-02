@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Terminal, Code2, Cpu, User, FolderGit2, FileText, Mail, ArrowRight, ExternalLink, Calendar, Clock, Send, MessageSquare, MapPin } from "lucide-react";
 import type { Route } from "./+types/home";
 import { Link } from "react-router";
-
+import { useState, useEffect } from "react";
 export function meta({ }: Route.MetaArgs) {
   return [
     { title: "Jayanthan Senthilkumar | AI & ML Engineer" },
@@ -26,22 +26,24 @@ export default function Home() {
     }
   ];
 
-  const recentPosts = [
-    {
-      title: "Architecting for Scale: A Deep Dive into Event-Driven Systems",
-      excerpt: "Exploring the nuances of building decoupled systems using Apache Kafka and Go.",
-      date: "2024-05-12",
-      readTime: "8 min read",
-      slug: "architecting-for-scale"
-    },
-    {
-      title: "The Future of React: Server Components Explained",
-      excerpt: "Demystifying React Server Components (RSC) and how they change modern web apps.",
-      date: "2024-04-28",
-      readTime: "6 min read",
-      slug: "react-server-components"
-    }
-  ];
+  const [recentPosts, setRecentPosts] = useState<any[]>([]);
+  const [isLoadingBlogs, setIsLoadingBlogs] = useState(true);
+
+  useEffect(() => {
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@jayanthansenthilkumar")
+      .then(res => res.json())
+      .then(data => {
+        if (data.items) {
+          // Get the latest 2 posts
+          setRecentPosts(data.items.slice(0, 2));
+        }
+        setIsLoadingBlogs(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch Medium articles", err);
+        setIsLoadingBlogs(false);
+      });
+  }, []);
 
   return (
     <div className="flex flex-col bg-[#F6F4EB]">
@@ -272,53 +274,73 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 gap-8">
-          {recentPosts.map(post => (
-            <article key={post.slug} className="flex flex-col md:flex-row bg-[#FAF7F2] border border-[#E5E0D0] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group relative">
-              {/* Image Block */}
-              <div className="md:w-[30%] min-h-[160px] md:min-h-full bg-[#E5E0D0] relative border-b md:border-b-0 md:border-r border-[#E5E0D0] flex flex-col justify-center items-center py-6 px-4 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-[#E5E0D0] opacity-50"></div>
-                <div className="relative z-10 text-center">
-                  <h3 className="font-serif text-2xl md:text-3xl text-[#0F172A] leading-none mb-1">Jayanthan</h3>
-                  <p className="font-serif italic text-xl text-[#EA580C]">Insights</p>
-                  <p className="font-sans font-bold tracking-[0.2em] text-[#0F172A] uppercase text-[10px] mt-3">Read Now</p>
-                </div>
-              </div>
+        <div>
+          {isLoadingBlogs ? (
+            <div className="text-center py-10">
+              <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[#EA580C] mx-auto"></div>
+              <p className="mt-4 text-slate-500 font-sans text-sm">Loading recent articles...</p>
+            </div>
+          ) : recentPosts.length === 0 ? (
+            <div className="text-center py-10 text-slate-500 font-sans">
+              No recent articles found.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {recentPosts.map((post, index) => (
+                <article key={post.guid || index} className="flex flex-col md:flex-row bg-[#FAF7F2] border border-[#E5E0D0] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group relative h-full">
+                  {/* Image Block */}
+                  <div className="md:w-[40%] min-h-[200px] md:min-h-full bg-[#E5E0D0] relative border-b md:border-b-0 md:border-r border-[#E5E0D0] flex flex-col justify-center items-center overflow-hidden shrink-0">
+                    {post.thumbnail ? (
+                      <img src={post.thumbnail} alt={post.title} className="absolute inset-0 w-full h-full object-cover" />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-[#E5E0D0] opacity-50"></div>
+                        <div className="relative z-10 text-center">
+                          <h3 className="font-serif text-2xl md:text-3xl text-[#0F172A] leading-none mb-1">Jayanthan</h3>
+                          <p className="font-serif italic text-xl text-[#EA580C]">Insights</p>
+                        </div>
+                      </>
+                    )}
+                  </div>
 
-              {/* Content Block */}
-              <div className="md:w-[70%] p-5 md:p-6 flex flex-col justify-between">
-                <div>
-                  <div className="text-[#EA580C] font-sans font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 flex items-center">
-                    <span>{post.date}</span>
-                    <span className="mx-2">|</span>
-                    <span>{post.readTime}</span>
+                  {/* Content Block */}
+                  <div className="md:w-[60%] p-5 md:p-6 flex flex-col justify-between flex-1">
+                    <div>
+                      <div className="text-[#EA580C] font-sans font-bold text-[10px] md:text-xs uppercase tracking-[0.2em] mb-3 flex items-center">
+                        <span>{new Date(post.pubDate.replace(/-/g, '/')).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+                      </div>
+                      <h3 className="text-xl font-serif text-[#0F172A] mb-2 group-hover:text-[#EA580C] transition-colors leading-tight">
+                        <Link to={`/blogs/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} className="before:absolute before:inset-0">
+                          {post.title}
+                        </Link>
+                      </h3>
+                      <div className="flex items-center space-x-2 text-slate-500 text-sm mb-3">
+                        <User className="w-4 h-4" />
+                        <span>{post.author || "Jayanthan Senthilkumar"}</span>
+                      </div>
+                      <p className="text-slate-600 font-sans font-light leading-relaxed mb-4 text-sm line-clamp-3">
+                        {post.description.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ')}
+                      </p>
+                    </div>
+                    <div className="flex justify-between items-center border-t border-[#E5E0D0] pt-4 mt-2 relative z-20">
+                      <div className="flex flex-wrap gap-2">
+                        {post.categories && post.categories.slice(0, 2).map((category: string) => (
+                          <span key={category} className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] font-medium uppercase tracking-wider">{category}</span>
+                        ))}
+                      </div>
+                      <Link 
+                        to={`/blogs/${post.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`} 
+                        className="flex items-center space-x-1 text-[#EA580C] hover:text-[#C2410C] text-[10px] font-bold tracking-[0.1em] uppercase transition-colors shrink-0 ml-2"
+                      >
+                        <span className="hidden sm:inline">Read Article</span>
+                        <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
+                      </Link>
+                    </div>
                   </div>
-                  <h3 className="text-xl md:text-2xl font-serif text-[#0F172A] mb-2 group-hover:text-[#EA580C] transition-colors leading-tight">
-                    <Link to={`/blogs/${post.slug}`} className="before:absolute before:inset-0">
-                      {post.title}
-                    </Link>
-                  </h3>
-                  <div className="flex items-center space-x-2 text-slate-500 text-sm mb-3">
-                    <User className="w-4 h-4" />
-                    <span>Jayanthan Senthilkumar</span>
-                  </div>
-                  <p className="text-slate-600 font-sans font-light leading-relaxed mb-4 text-sm md:text-base">
-                    {post.excerpt}
-                  </p>
-                </div>
-                <div className="flex justify-between items-center border-t border-[#E5E0D0] pt-4 mt-2">
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] md:text-xs font-medium uppercase tracking-wider">Engineering</span>
-                    <span className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] md:text-xs font-medium uppercase tracking-wider">Tech</span>
-                  </div>
-                  <div className="flex items-center space-x-1 text-slate-500 text-[10px] md:text-xs font-bold tracking-[0.1em] uppercase">
-                    <MapPin className="w-3 h-3 md:w-4 md:h-4" />
-                    <span>Remote, AUS</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          ))}
+                </article>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
