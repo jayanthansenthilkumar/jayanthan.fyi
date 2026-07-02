@@ -22,9 +22,9 @@ export default function Contact() {
     setSubmitStatus('idle');
 
     // NOTE: Replace these with your actual EmailJS credentials
-    const SERVICE_ID = "YOUR_SERVICE_ID"; 
-    const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-    const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+    const SERVICE_ID = "service_jeoes5u"; 
+    const TEMPLATE_ID = "template_43f4k5x";
+    const PUBLIC_KEY = "ZRZcBlELrxgInVaT2";
 
     if (form.current) {
       emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
@@ -68,45 +68,74 @@ export default function Contact() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex flex-col space-y-10"
+          className="flex flex-col"
         >
           {/* Form */}
           <div className="bg-[#FAF7F2] border border-[#E5E0D0] rounded-2xl p-8 md:p-10 shadow-sm relative overflow-hidden">
             <h3 className="text-2xl font-serif text-[#0F172A] mb-6">Send a Message</h3>
             <form ref={form} onSubmit={sendEmail} className="space-y-6 relative z-10">
-              <div>
-                <label htmlFor="user_name" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Name</label>
-                <input 
-                  type="text" 
-                  name="user_name"
-                  id="user_name" 
-                  required
-                  className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
-                  placeholder="John Doe"
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="recruiter_name" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Recruiter Name</label>
+                  <input 
+                    type="text" 
+                    name="recruiter_name"
+                    id="recruiter_name" 
+                    required
+                    className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
+                    placeholder="Your Name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="work_email" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Work Email</label>
+                  <input 
+                    type="email" 
+                    name="work_email"
+                    id="work_email" 
+                    required
+                    className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
+                    placeholder="Yourmail@company.com"
+                  />
+                </div>
               </div>
-              <div>
-                <label htmlFor="user_email" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Email</label>
-                <input 
-                  type="email" 
-                  name="user_email"
-                  id="user_email" 
-                  required
-                  className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
-                  placeholder="john@company.com"
-                />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="company_name" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Company Name</label>
+                  <input 
+                    type="text" 
+                    name="company_name"
+                    id="company_name" 
+                    required
+                    className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
+                    placeholder="Tech Corp Inc."
+                  />
+                </div>
+                <div>
+                  <label htmlFor="position" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Open Role / Position</label>
+                  <input 
+                    type="text" 
+                    name="position"
+                    id="position" 
+                    required
+                    className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors"
+                    placeholder="Senior AI Engineer"
+                  />
+                </div>
               </div>
+
               <div>
-                <label htmlFor="message" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Message</label>
+                <label htmlFor="message" className="block text-xs font-sans font-bold text-slate-700 mb-2 uppercase tracking-widest">Message / Job Details</label>
                 <textarea 
                   name="message"
                   id="message" 
                   required
                   rows={4}
                   className="w-full bg-white border border-[#E5E0D0] rounded-lg px-5 py-4 text-slate-900 focus:outline-none focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] transition-colors resize-none"
-                  placeholder="Hi Jayanthan, we have an open role for..."
+                  placeholder="Hi Jayanthan, we're looking for an ML Engineer to join our team to work on..."
                 ></textarea>
               </div>
+
               <button 
                 type="submit"
                 disabled={isSubmitting}
@@ -130,7 +159,42 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* Contact Details (Below Form) */}
+        </motion.div>
+
+        {/* RIGHT SIDE: MAP & CONTACT DETAILS */}
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col space-y-10 lg:h-full"
+        >
+          {/* Map */}
+          <div className="h-[400px] lg:flex-1 w-full rounded-2xl overflow-hidden border border-[#E5E0D0] shadow-sm relative group min-h-[350px]">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418336.8778945417!2d138.28151240292723!3d-34.92849886733221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab735c7c526b33f%3A0x4033654628ec640!2sAdelaide%20SA%2C%20Australia!5e0!3m2!1sen!2sin!4v1714553245468!5m2!1sen!2sin" 
+              className="w-full h-full absolute inset-0"
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            
+            {/* Map Overlay Card */}
+            {/* <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded-xl border border-[#E5E0D0] shadow-lg flex items-start space-x-4 transform transition-transform group-hover:-translate-y-1">
+              <div className="p-3 bg-[#FAF7F2] rounded-full shrink-0">
+                <MapPin className="w-6 h-6 text-[#EA580C]" />
+              </div>
+              <div>
+                <h4 className="font-serif font-bold text-[#0F172A] text-lg mb-1">Adelaide, Australia</h4>
+                <p className="text-sm text-slate-600 font-sans leading-relaxed">
+                  Incoming Master's Student at Adelaide University.<br/> 
+                  <span className="font-medium text-[#0F172A]">Available for on-site (SA) and remote opportunities.</span>
+                </p>
+              </div>
+            </div> */}
+          </div>
+
+          {/* Contact Details */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="flex items-start space-x-4 p-6 bg-white border border-[#E5E0D0] rounded-2xl shadow-sm hover:border-[#EA580C]/50 transition-colors group">
               <div className="p-3 bg-[#FAF7F2] rounded-xl text-[#EA580C] group-hover:bg-[#EA580C] group-hover:text-white transition-colors">
@@ -154,39 +218,6 @@ export default function Contact() {
                   <span className="text-slate-300">|</span>
                   <a href="https://github.com/jayanthansenthilkumar" target="_blank" rel="noreferrer" className="hover:underline">GitHub</a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* RIGHT SIDE: MAP */}
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.3 }}
-          className="h-[400px] lg:h-[480px] w-full"
-        >
-          <div className="w-full h-full rounded-2xl overflow-hidden border border-[#E5E0D0] shadow-sm relative group">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418336.8778945417!2d138.28151240292723!3d-34.92849886733221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab735c7c526b33f%3A0x4033654628ec640!2sAdelaide%20SA%2C%20Australia!5e0!3m2!1sen!2sin!4v1714553245468!5m2!1sen!2sin" 
-              className="w-full h-full absolute inset-0"
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-            
-            {/* Map Overlay Card */}
-            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-5 rounded-xl border border-[#E5E0D0] shadow-lg flex items-start space-x-4 transform transition-transform group-hover:-translate-y-1">
-              <div className="p-3 bg-[#FAF7F2] rounded-full shrink-0">
-                <MapPin className="w-6 h-6 text-[#EA580C]" />
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-[#0F172A] text-lg mb-1">Adelaide, Australia</h4>
-                <p className="text-sm text-slate-600 font-sans leading-relaxed">
-                  Incoming Master's Student at Adelaide University.<br/> 
-                  <span className="font-medium text-[#0F172A]">Available for on-site (SA) and remote opportunities.</span>
-                </p>
               </div>
             </div>
           </div>
