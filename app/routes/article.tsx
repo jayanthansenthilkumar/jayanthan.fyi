@@ -39,7 +39,7 @@ export default function Article() {
 
   if (isLoading) {
     return (
-      <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen flex items-center justify-center">
+      <div className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#EA580C] mx-auto"></div>
           <p className="mt-4 text-slate-500 font-sans">Loading article...</p>
@@ -50,7 +50,7 @@ export default function Article() {
 
   if (!article) {
     return (
-      <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen text-center">
+      <div className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen text-center">
         <h1 className="text-4xl font-serif text-[#0F172A] mb-4">Article Not Found</h1>
         <p className="text-slate-500 font-sans mb-8">We couldn't find the article you're looking for.</p>
         <Link to="/blogs" className="inline-flex items-center space-x-2 text-[#EA580C] hover:text-[#C2410C] font-medium uppercase tracking-wider text-sm">
@@ -62,7 +62,7 @@ export default function Article() {
   }
 
   return (
-    <div className="py-20 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen">
+    <div className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
