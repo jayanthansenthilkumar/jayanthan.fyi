@@ -28,12 +28,11 @@ jobs:
       - name: Build
         run: |
           npm run build
-          # We copy __spa-fallback.html first to act as SPA fallback for any unknown routes
-          cp build/client/__spa-fallback.html build/client/404.html
+          cp dist/index.html dist/404.html
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/client
+          publish_dir: ./dist
           publish_branch: gh-pages
