@@ -2327,8 +2327,8 @@ var resume_default = UNSAFE_withComponentProps(function Resume() {
 //#region \0virtual:react-router/server-manifest
 var server_manifest_default = {
 	"entry": {
-		"module": "/jayanthan.fyi/assets/entry.client-CDCt4hvI.js",
-		"imports": ["/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js", "/jayanthan.fyi/assets/components-DcSA4dAW.js"],
+		"module": "/assets/entry.client-DArAZdvt.js",
+		"imports": ["/assets/jsx-runtime-BDIMPI9k.js", "/assets/components-DPrIic0m.js"],
 		"css": []
 	},
 	"routes": {
@@ -2345,22 +2345,22 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": true,
-			"module": "/jayanthan.fyi/assets/root-D7Wfm-oB.js",
+			"module": "/assets/root-DbZs3YUJ.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/components-DcSA4dAW.js",
-				"/jayanthan.fyi/assets/lib-D8Wix2DZ.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/code-xml-D5iN9MG9.js",
-				"/jayanthan.fyi/assets/calendar-DD16gSUR.js",
-				"/jayanthan.fyi/assets/code-BNhrrhp6.js",
-				"/jayanthan.fyi/assets/file-text-CHbzuTW2.js",
-				"/jayanthan.fyi/assets/mail-DZIKPN0v.js",
-				"/jayanthan.fyi/assets/terminal-CUFLFdcL.js",
-				"/jayanthan.fyi/assets/user-CJgBLgxD.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/components-DPrIic0m.js",
+				"/assets/lib-C7SupGur.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/code-xml-D5iN9MG9.js",
+				"/assets/calendar-DD16gSUR.js",
+				"/assets/code-BNhrrhp6.js",
+				"/assets/file-text-CHbzuTW2.js",
+				"/assets/mail-DZIKPN0v.js",
+				"/assets/terminal-CUFLFdcL.js",
+				"/assets/user-CJgBLgxD.js",
+				"/assets/proxy-DOQWZvMl.js"
 			],
-			"css": ["/jayanthan.fyi/assets/root-hUKUvGuF.css"],
+			"css": ["/assets/root-E8jLTpsh.css"],
 			"clientActionModule": void 0,
 			"clientLoaderModule": void 0,
 			"clientMiddlewareModule": void 0,
@@ -2379,20 +2379,20 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/home-bVuoSh8W.js",
+			"module": "/assets/home-0PdgjHXq.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/lib-D8Wix2DZ.js",
-				"/jayanthan.fyi/assets/code-xml-D5iN9MG9.js",
-				"/jayanthan.fyi/assets/arrow-right-D85J3IxZ.js",
-				"/jayanthan.fyi/assets/file-text-CHbzuTW2.js",
-				"/jayanthan.fyi/assets/folder-git-2-sWv64IjU.js",
-				"/jayanthan.fyi/assets/mail-DZIKPN0v.js",
-				"/jayanthan.fyi/assets/send-D4sAud9f.js",
-				"/jayanthan.fyi/assets/user-CJgBLgxD.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js",
-				"/jayanthan.fyi/assets/components-DcSA4dAW.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/lib-C7SupGur.js",
+				"/assets/code-xml-D5iN9MG9.js",
+				"/assets/arrow-right-D85J3IxZ.js",
+				"/assets/file-text-CHbzuTW2.js",
+				"/assets/folder-git-2-sWv64IjU.js",
+				"/assets/mail-DZIKPN0v.js",
+				"/assets/send-D4sAud9f.js",
+				"/assets/user-CJgBLgxD.js",
+				"/assets/proxy-DOQWZvMl.js",
+				"/assets/components-DPrIic0m.js",
+				"/assets/createLucideIcon-DaEiYjC2.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2413,13 +2413,13 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/about-BmD_Wgz0.js",
+			"module": "/assets/about-BmD_Wgz0.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/code-BNhrrhp6.js",
-				"/jayanthan.fyi/assets/user-CJgBLgxD.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/code-BNhrrhp6.js",
+				"/assets/user-CJgBLgxD.js",
+				"/assets/proxy-DOQWZvMl.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2440,13 +2440,13 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/projects-Cd-uE_wc.js",
+			"module": "/assets/projects-Cd-uE_wc.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/code-xml-D5iN9MG9.js",
-				"/jayanthan.fyi/assets/folder-git-2-sWv64IjU.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/code-xml-D5iN9MG9.js",
+				"/assets/folder-git-2-sWv64IjU.js",
+				"/assets/proxy-DOQWZvMl.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2467,16 +2467,16 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/blogs-MT41xt1L.js",
+			"module": "/assets/blogs-BkPq05BW.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/lib-D8Wix2DZ.js",
-				"/jayanthan.fyi/assets/arrow-right-D85J3IxZ.js",
-				"/jayanthan.fyi/assets/file-text-CHbzuTW2.js",
-				"/jayanthan.fyi/assets/user-CJgBLgxD.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js",
-				"/jayanthan.fyi/assets/components-DcSA4dAW.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/lib-C7SupGur.js",
+				"/assets/arrow-right-D85J3IxZ.js",
+				"/assets/file-text-CHbzuTW2.js",
+				"/assets/user-CJgBLgxD.js",
+				"/assets/proxy-DOQWZvMl.js",
+				"/assets/components-DPrIic0m.js",
+				"/assets/createLucideIcon-DaEiYjC2.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2497,14 +2497,14 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/article-DuSiqASh.js",
+			"module": "/assets/article-D2fAO3ny.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/lib-D8Wix2DZ.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/calendar-DD16gSUR.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js",
-				"/jayanthan.fyi/assets/components-DcSA4dAW.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/lib-C7SupGur.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/calendar-DD16gSUR.js",
+				"/assets/proxy-DOQWZvMl.js",
+				"/assets/components-DPrIic0m.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2525,14 +2525,14 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/contact-MzC94JKz.js",
+			"module": "/assets/contact-MzC94JKz.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/mail-DZIKPN0v.js",
-				"/jayanthan.fyi/assets/send-D4sAud9f.js",
-				"/jayanthan.fyi/assets/terminal-CUFLFdcL.js",
-				"/jayanthan.fyi/assets/proxy-DOQWZvMl.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/mail-DZIKPN0v.js",
+				"/assets/send-D4sAud9f.js",
+				"/assets/terminal-CUFLFdcL.js",
+				"/assets/proxy-DOQWZvMl.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2553,11 +2553,11 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/jayanthan.fyi/assets/resume-C8ismtP7.js",
+			"module": "/assets/resume-C8ismtP7.js",
 			"imports": [
-				"/jayanthan.fyi/assets/jsx-runtime-BDIMPI9k.js",
-				"/jayanthan.fyi/assets/createLucideIcon-DaEiYjC2.js",
-				"/jayanthan.fyi/assets/file-text-CHbzuTW2.js"
+				"/assets/jsx-runtime-BDIMPI9k.js",
+				"/assets/createLucideIcon-DaEiYjC2.js",
+				"/assets/file-text-CHbzuTW2.js"
 			],
 			"css": [],
 			"clientActionModule": void 0,
@@ -2566,14 +2566,14 @@ var server_manifest_default = {
 			"hydrateFallbackModule": void 0
 		}
 	},
-	"url": "/jayanthan.fyi/assets/manifest-82e49caa.js",
-	"version": "82e49caa",
+	"url": "/assets/manifest-34b3a758.js",
+	"version": "34b3a758",
 	"sri": void 0
 };
 //#endregion
 //#region \0virtual:react-router/server-build
 var assetsBuildDirectory = "build\\client";
-var basename = "/jayanthan.fyi/";
+var basename = "/";
 var future = { "unstable_optimizeDeps": false };
 var ssr = false;
 var isSpaMode = false;
@@ -2586,7 +2586,7 @@ var prerender = [
 	"/resume"
 ];
 var routeDiscovery = { "mode": "initial" };
-var publicPath = "/jayanthan.fyi/";
+var publicPath = "/";
 var entry = { module: entry_server_node_exports };
 var routes = {
 	"root": {

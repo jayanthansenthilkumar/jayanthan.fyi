@@ -35,11 +35,8 @@ jobs:
       - name: Build
         run: |
           npm run build
-          # Move prerendered files from the subpath to the root of the build directory
-          # We copy index.html first to act as SPA fallback for any unknown routes
-          cp build/client/index.html build/client/404.html
-          cp -r build/client/jayanthan.fyi/* build/client/
-          rm -rf build/client/jayanthan.fyi
+          # We copy __spa-fallback.html first to act as SPA fallback for any unknown routes
+          cp build/client/__spa-fallback.html build/client/404.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
