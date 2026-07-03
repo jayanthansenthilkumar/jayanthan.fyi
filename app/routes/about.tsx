@@ -11,9 +11,9 @@ export function meta({}: Route.MetaArgs) {
 
 export default function About() {
   const skills = [
-    { name: "Languages", icon: Globe, items: ["Python", "HTML", "CSS", "JavaScript", "PHP"] },
-    { name: "Frameworks", icon: Code, items: ["Laravel", "jQuery", "Ajax", "React"] },
-    { name: "Tools", icon: Database, items: ["GitHub", "Git", "MySQL", "SAP ABAP HANA"] },
+    { name: "Languages", icon: Globe, items: ["Python","Golang", "HTML", "CSS", "JavaScript", "PHP"] },
+    { name: "Frameworks", icon: Code, items: ["Laravel", "jQuery", "Ajax", "React",  ] },
+    { name: "Tools", icon: Database, items: ["GitHub", "Git", "Docker", "Kubernetes", "MySQL", "SAP ABAP HANA"] },
   ];
 
   return (

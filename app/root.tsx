@@ -52,6 +52,14 @@ export default function App() {
   return <Outlet />;
 }
 
+export function HydrateFallback() {
+  return (
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-[#F6F4EB]">
+      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#EA580C]"></div>
+    </div>
+  );
+}
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   let message = "Oops!";
   let details = "An unexpected error occurred.";
