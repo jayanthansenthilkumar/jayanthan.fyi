@@ -28,6 +28,38 @@ export default function Projects() {
       github: "https://github.com/jayanthansenthilkumar",
       demo: "#",
       status: "Production"
+    },
+    {
+      title: "SupriAI — AI-Powered Browsing Intelligence",
+      description: "SupriAI is an intelligent Chrome extension that monitors your browsing behavior in real time and uses 10 Machine Learning and Deep Learning algorithms to deliver productivity predictions, learning content recommendations, anomaly detection, NLP-based content analysis, time-pattern forecasting, and personalized focus scheduling — powered by a Python Flask + SQLite + scikit-learn backend.",
+      tags: ["Python", "Flask", "SQLite", "scikit-learn", "Chrome Extension"],
+      github: "https://github.com/jayanthansenthilkumar",
+      demo: "#",
+      status: "Production"
+    },
+    {
+      title: "ISHAA - Python AI Framework",
+      description: "A lightweight, modular Python framework designed to streamline the deployment and scaling of Artificial Intelligence models.",
+      tags: ["Python", "AI", "Framework"],
+      github: "https://github.com/jayanthansenthilkumar",
+      demo: "#",
+      status: "Production"
+    },
+    {
+      title: "Personal Portfolio",
+      description: "A high-performance, responsive personal portfolio built with React Router v7, Tailwind CSS, and Framer Motion to showcase software engineering projects and technical articles.",
+      tags: ["React Router v7", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/jayanthansenthilkumar",
+      demo: "#",
+      status: "Production"
+    },
+    {
+      title: "Spark - Event Management",
+      description: "A comprehensive event management platform streamlining the registration, ticketing, and real-time coordination of large-scale events.",
+      tags: ["Web Development", "Management System"],
+      github: "https://github.com/jayanthansenthilkumar",
+      demo: "#",
+      status: "Production"
     }
   ];
 
@@ -47,16 +79,16 @@ export default function Projects() {
         </h1>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12 mt-16">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="group relative bg-[#FAF7F2] border border-[#E5E0D0] rounded-2xl p-10 hover:border-[#EA580C]/50 hover:shadow-xl transition-all flex flex-col shadow-sm"
+            className="group relative bg-[#FAF7F2] border border-[#E5E0D0] rounded-2xl p-6 hover:border-[#EA580C]/50 hover:shadow-xl transition-all flex flex-col shadow-sm"
           >
-            <div className="flex justify-between items-start mb-8">
+            <div className="flex justify-between items-start mb-6">
               <div className="px-3 py-1 rounded-full bg-white text-slate-600 font-sans text-xs border border-[#E5E0D0] shadow-sm uppercase tracking-wider">
                 Status: <span className={project.status === 'Production' ? 'text-[#0F172A] font-semibold' : 'text-[#EA580C] font-semibold'}>{project.status}</span>
               </div>
@@ -66,17 +98,22 @@ export default function Projects() {
               </div>
             </div>
 
-            <h3 className="text-3xl font-serif text-[#0F172A] mb-4 group-hover:text-[#EA580C] transition-colors">{project.title}</h3>
-            <p className="text-slate-600 mb-10 flex-grow leading-relaxed font-light text-lg">
+            <h3 className="text-2xl font-serif text-[#0F172A] mb-3 group-hover:text-[#EA580C] transition-colors line-clamp-1">{project.title}</h3>
+            <p className="text-slate-600 mb-8 flex-grow leading-relaxed font-light text-base line-clamp-3" title={project.description}>
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-auto">
-              {project.tags.map(tag => (
-                <span key={tag} className="text-sm font-sans font-medium text-slate-600 bg-white px-3 py-1 rounded-md border border-[#E5E0D0]">
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {project.tags.slice(0, 3).map(tag => (
+                <span key={tag} className="text-xs font-sans font-medium text-slate-600 bg-white px-2 py-1 rounded border border-[#E5E0D0]">
                   {tag}
                 </span>
               ))}
+              {project.tags.length > 3 && (
+                <span className="text-xs font-sans font-medium text-slate-400 px-1 py-1">
+                  +{project.tags.length - 3}
+                </span>
+              )}
             </div>
           </motion.div>
         ))}

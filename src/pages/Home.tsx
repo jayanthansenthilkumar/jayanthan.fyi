@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { Terminal, Code2, Cpu, User, FolderGit2, FileText, Mail, ArrowRight, ExternalLink, Calendar, Clock, Send, MessageSquare, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
 export default function Home() {

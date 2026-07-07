@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { FileText, ArrowRight, Calendar, Clock, User, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
 

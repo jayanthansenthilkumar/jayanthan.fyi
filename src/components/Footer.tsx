@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { Terminal, Code2, UserPlus, Mail, ArrowRight, Calendar, MapPin } from "lucide-react";
 
 export function Footer() {

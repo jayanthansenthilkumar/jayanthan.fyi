@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router";
 import { Terminal, Code, User, FileText, Mail, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -31,7 +31,7 @@ export function Navbar() {
               <NavLink
                 key={to}
                 to={to}
-                className={({ isActive }) =>
+                className={({ isActive }: { isActive: boolean }) =>
                   `flex items-center space-x-1 text-sm font-medium transition-colors ${
                     isActive ? "text-[#EA580C]" : "text-slate-600 hover:text-[#0F172A]"
                   }`
@@ -66,7 +66,7 @@ export function Navbar() {
                   key={to}
                   to={to}
                   onClick={() => setIsOpen(false)}
-                  className={({ isActive }) =>
+                  className={({ isActive }: { isActive: boolean }) =>
                     `flex items-center space-x-2 px-3 py-2 rounded-md text-base font-medium ${
                       isActive
                         ? "bg-orange-50 text-[#EA580C]"
