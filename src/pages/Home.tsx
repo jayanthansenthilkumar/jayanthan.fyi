@@ -59,7 +59,7 @@ export default function Home() {
                 <span className="w-4 h-[2px] bg-[#EA580C]"></span>
                 <span>AI & ML Engineer</span>
               </div>
-              <h1 className="text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8">
                 <span className="italic text-[#EA580C]">Jayanthan</span><br />
                 Senthilkumar
               </h1>
@@ -85,7 +85,7 @@ export default function Home() {
 
                 {/* Radial Equalizer / Sci-Fi HUD Visualization */}
                 <div className="relative z-10 flex-1 flex items-center justify-center w-full">
-                  <svg viewBox="0 0 380 380" className="w-full max-w-[380px] h-auto overflow-visible">
+                  <svg viewBox="0 0 380 380" className="w-full max-w-[280px] sm:max-w-[380px] h-auto overflow-visible">
                     {[
                       { name: "Machine Learning", value: 95 },
                       { name: "Deep Learning", value: 90 },
@@ -188,7 +188,7 @@ export default function Home() {
               <User className="h-6 w-6" />
               <h2 className="font-serif italic text-xl tracking-tight">/about-me</h2>
             </div>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight">
               Product-focused <span className="italic text-[#EA580C]">Software Engineer</span>
             </h3>
             <p className="text-lg text-slate-600 font-sans font-light leading-relaxed mb-6">
@@ -217,7 +217,7 @@ export default function Home() {
               <FolderGit2 className="h-6 w-6" />
               <h2 className="font-serif italic text-xl tracking-tight">/projects</h2>
             </div>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A]">Featured <span className="italic text-[#EA580C]">Work</span></h3>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A]">Featured <span className="italic text-[#EA580C]">Work</span></h3>
           </div>
           <Link to="/projects" className="hidden md:inline-flex items-center space-x-2 text-[#0F172A] font-semibold hover:text-[#EA580C] transition-colors border-b border-[#0F172A] hover:border-[#EA580C] pb-1">
             <span>View All Projects</span>
@@ -260,7 +260,7 @@ export default function Home() {
               <FileText className="h-6 w-6" />
               <h2 className="font-serif italic text-xl tracking-tight">/blog</h2>
             </div>
-            <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A]">Latest <span className="italic text-[#EA580C]">Writings</span></h3>
+            <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A]">Latest <span className="italic text-[#EA580C]">Writings</span></h3>
           </div>
           <Link to="/blogs" className="hidden md:inline-flex items-center space-x-2 text-[#0F172A] font-semibold hover:text-[#EA580C] transition-colors border-b border-[#0F172A] hover:border-[#EA580C] pb-1">
             <span>Read All Articles</span>
@@ -344,7 +344,7 @@ export default function Home() {
           <Mail className="h-6 w-6" />
           <h2 className="font-serif italic text-xl tracking-tight">/contact</h2>
         </div>
-        <h3 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight">
           Ready to <span className="italic text-[#EA580C]">Collaborate?</span>
         </h3>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto font-sans font-light mb-12">

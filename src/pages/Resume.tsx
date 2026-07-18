@@ -29,7 +29,7 @@ export default function Resume() {
             <FileText className="h-6 w-6" />
             <h1 className="font-serif italic text-xl tracking-tight">/resume</h1>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A] mb-6">
             Curriculum <span className="italic text-[#EA580C]">Vitae</span>
           </h2>
           <p className="text-slate-600 font-sans font-light max-w-2xl mx-auto mb-10 text-lg">
@@ -52,7 +52,7 @@ export default function Resume() {
 
             <button
               onClick={() => setSelectedRegion("australia")}
-              className={`relative z-10 px-8 py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
+              className={`relative z-10 px-4 py-2 sm:px-8 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
                 selectedRegion === "australia" ? "text-white" : "text-slate-500 hover:text-[#0F172A]"
               }`}
             >
@@ -61,7 +61,7 @@ export default function Resume() {
             </button>
             <button
               onClick={() => setSelectedRegion("india")}
-              className={`relative z-10 px-8 py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
+              className={`relative z-10 px-4 py-2 sm:px-8 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
                 selectedRegion === "india" ? "text-white" : "text-slate-500 hover:text-[#0F172A]"
               }`}
             >
@@ -93,7 +93,7 @@ export default function Resume() {
         </div>
 
         {/* PDF Viewer Container */}
-        <div className="bg-white border border-[#E5E0D0] rounded-2xl shadow-sm overflow-hidden h-[800px] w-full relative">
+        <div className="bg-white border border-[#E5E0D0] rounded-2xl shadow-sm overflow-hidden h-[400px] sm:h-[600px] lg:h-[800px] w-full relative">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedRegion}

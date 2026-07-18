@@ -21,7 +21,7 @@ export default function About() {
           <User className="h-6 w-6" />
           <h2 className="font-serif italic text-xl tracking-tight">/about-me</h2>
         </div>
-        <h1 className="text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
           Product-focused <span className="italic text-[#EA580C]">Software Engineer</span>
         </h1>
         <div className="prose prose-lg mx-auto text-slate-600 font-sans font-light text-left md:text-center">
@@ -34,7 +34,7 @@ export default function About() {
       </motion.div>
 
       <div className="mt-24 max-w-6xl mx-auto mb-20">
-        <h3 className="text-4xl font-serif text-[#0F172A] mb-12 text-center">Academic <span className="italic text-[#EA580C]">Roadmap</span></h3>
+        <h3 className="text-3xl sm:text-4xl font-serif text-[#0F172A] mb-12 text-center">Academic <span className="italic text-[#EA580C]">Roadmap</span></h3>
         
         <div className="relative mt-8">
           {/* Mobile Timeline (Hidden on MD) */}
@@ -200,7 +200,7 @@ export default function About() {
         {/* Subtle Graph Paper Background */}
         <div className="absolute inset-0 top-32 z-0 opacity-30 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#E5E0D0 1px, transparent 1px), linear-gradient(90deg, #E5E0D0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        <h3 className="text-4xl font-serif text-[#0F172A] mb-20 text-center relative z-10">Technical <span className="italic text-[#EA580C]">Skills</span></h3>
+        <h3 className="text-3xl sm:text-4xl font-serif text-[#0F172A] mb-20 text-center relative z-10">Technical <span className="italic text-[#EA580C]">Skills</span></h3>
         
         <div className="relative px-4 sm:px-12 lg:px-16 pt-8 pb-16">
           {/* Desktop Wire SVG - Tighter droop */}
@@ -233,7 +233,7 @@ export default function About() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative w-full aspect-[3/4] ${color} ${rotation} shadow-[0_8px_30px_rgb(0,0,0,0.06)] px-6 py-12 flex flex-col items-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.1)] transition-all duration-300 ease-out`}
+                  className={`relative w-full min-h-[360px] sm:min-h-[auto] sm:aspect-[3/4] ${color} ${rotation} shadow-[0_8px_30px_rgb(0,0,0,0.06)] px-6 py-12 flex flex-col items-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.1)] transition-all duration-300 ease-out`}
                 >
                   {/* Mobile Wire */}
                   <div className="absolute top-2 left-[-15%] right-[-15%] h-[3px] bg-[#1E293B] md:hidden z-0 rounded-full" />
@@ -280,7 +280,7 @@ export default function About() {
 
       {/* INDUSTRIAL EXPERIENCE SECTION */}
       <div className="mt-32 max-w-4xl mx-auto border-t border-[#E5E0D0] pt-24 mb-20">
-        <h3 className="text-4xl font-serif text-[#0F172A] mb-12 text-center">Industrial <span className="italic text-[#EA580C]">Experience</span></h3>
+        <h3 className="text-3xl sm:text-4xl font-serif text-[#0F172A] mb-12 text-center">Industrial <span className="italic text-[#EA580C]">Experience</span></h3>
         <div className="space-y-12">
           <div className="border-l-2 border-[#E5E0D0] pl-8 relative">
             <div className="absolute w-4 h-4 rounded-full bg-[#EA580C] -left-[9px] top-2" />

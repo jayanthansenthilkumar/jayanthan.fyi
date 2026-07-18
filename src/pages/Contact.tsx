@@ -48,7 +48,7 @@ export default function Contact() {
           <Terminal className="h-6 w-6" />
           <h2 className="font-serif italic text-xl tracking-tight">/open-to-work</h2>
         </div>
-        <h1 className="text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
           Ready to <span className="italic text-[#EA580C]">Join Your Team</span>
         </h1>
         <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto font-sans font-light leading-relaxed">
@@ -163,7 +163,7 @@ export default function Contact() {
           className="flex flex-col space-y-10 lg:h-full"
         >
           {/* Map */}
-          <div className="h-[400px] lg:flex-1 w-full rounded-2xl overflow-hidden border border-[#E5E0D0] shadow-sm relative group min-h-[350px]">
+          <div className="h-[300px] sm:h-[400px] lg:flex-1 w-full rounded-2xl overflow-hidden border border-[#E5E0D0] shadow-sm relative group min-h-[300px]">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418336.8778945417!2d138.28151240292723!3d-34.92849886733221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ab735c7c526b33f%3A0x4033654628ec640!2sAdelaide%20SA%2C%20Australia!5e0!3m2!1sen!2sin!4v1714553245468!5m2!1sen!2sin" 
               className="w-full h-full absolute inset-0"
@@ -220,7 +220,7 @@ export default function Contact() {
 
       {/* FAQ SECTION */}
       <div className="mt-32 border-t border-[#E5E0D0] pt-20">
-        <h3 className="text-4xl font-serif text-[#0F172A] mb-12 text-center">Frequently Asked <span className="italic text-[#EA580C]">Questions</span></h3>
+        <h3 className="text-3xl sm:text-4xl font-serif text-[#0F172A] mb-12 text-center">Frequently Asked <span className="italic text-[#EA580C]">Questions</span></h3>
         <div className="max-w-3xl mx-auto space-y-8">
           <div className="bg-[#FAF7F2] border border-[#E5E0D0] p-6 rounded-2xl">
             <h4 className="text-xl font-serif text-[#0F172A] mb-2">Are you available for freelance work?</h4>
