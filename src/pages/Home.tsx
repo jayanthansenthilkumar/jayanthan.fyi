@@ -46,7 +46,7 @@ export default function Home() {
         {/* Subtle Graph Paper Background */}
         <div className="absolute inset-0 z-0 opacity-30 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#E5E0D0 1px, transparent 1px), linear-gradient(90deg, #E5E0D0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-        <section className="relative z-10 pt-16 pb-20 md:pt-28 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <section className="relative z-10 pt-24 pb-20 md:pt-40 md:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
