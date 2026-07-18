@@ -1,0 +1,52 @@
+import { Routes, Route, useLocation } from "react-router";
+import { motion, AnimatePresence } from "framer-motion";
+import { Navbar } from "./components/Navbar.tsx";
+import { Footer } from "./components/Footer.tsx";
+
+import { ScrollToTop } from "./components/ScrollToTop.tsx";
+
+import { GoToTop } from "./components/GoToTop.tsx";
+
+// Pages
+import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import Blogs from "./pages/Blogs.tsx";
+import BlogDetail from "./pages/BlogDetail.tsx";
+import Projects from "./pages/Projects.tsx";
+import Contact from "./pages/Contact.tsx";
+import Resume from "./pages/Resume.tsx";
+
+export default function App() {
+  const location = useLocation();
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
+      <GoToTop />
+      <Navbar />
+      <main className="flex-grow flex flex-col">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="flex-grow flex flex-col"
+          >
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/:slug" element={<BlogDetail />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/resume" element={<Resume />} />
+            </Routes>
+          </motion.div>
+        </AnimatePresence>
+      </main>
+      <Footer />
+    </div>
+  );
+}

@@ -19,4 +19,26 @@ html,
 body {
   @apply bg-[#F6F4EB] text-slate-800;
   color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F4EB;
+  border-left: 1px solid #E5E0D0;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0F172A;
+  border-radius: 8px;
+  border: 3px solid #F6F4EB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #EA580C;
 }
