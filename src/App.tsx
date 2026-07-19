@@ -1,4 +1,5 @@
 import { Routes, Route, useLocation } from "react-router";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "./components/Navbar.tsx";
 import { Footer } from "./components/Footer.tsx";
@@ -18,6 +19,24 @@ import Resume from "./pages/Resume.tsx";
 
 export default function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    if (path === "/") {
+      document.title = "Jayanthan | Portfolio";
+    } else if (path === "/about") {
+      document.title = "About | Jayanthan";
+    } else if (path === "/projects") {
+      document.title = "Projects | Jayanthan";
+    } else if (path === "/blogs") {
+      document.title = "Blogs | Jayanthan";
+    } else if (path === "/contact") {
+      document.title = "Contact | Jayanthan";
+    } else if (path === "/resume") {
+      document.title = "Resume | Jayanthan";
+    }
+    // The individual blog post title is handled directly in BlogDetail.tsx
+  }, [location.pathname]);
 
   return (
     <div className="flex flex-col min-h-screen">

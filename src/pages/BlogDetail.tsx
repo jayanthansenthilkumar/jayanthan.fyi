@@ -109,7 +109,7 @@ export default function Article() {
             [&>blockquote]:border-l-4 [&>blockquote]:border-[#EA580C] [&>blockquote]:pl-6 [&>blockquote]:py-2 [&>blockquote]:my-8 [&>blockquote]:font-serif [&>blockquote]:text-2xl [&>blockquote]:italic [&>blockquote]:text-[#0F172A]
             [&_img]:rounded-xl [&_img]:my-8 [&_img]:w-full [&_img]:h-auto
             [&_a]:text-[#EA580C] [&_a]:underline"
-          dangerouslySetInnerHTML={{ __html: article.content || article.description }}
+          dangerouslySetInnerHTML={{ __html: (article.content || article.description).replace(/<img[^>]+src="https:\/\/medium\.com\/_\/stat[^>]*>/g, '') }}
         />
         
         <div className="mt-16 pt-8 border-t border-[#E5E0D0] flex justify-between items-center">
