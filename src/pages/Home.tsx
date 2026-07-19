@@ -51,7 +51,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16 items-center"
           >
             {/* Left Column: Name & Education */}
             <div>
@@ -78,8 +78,8 @@ export default function Home() {
             </div>
 
             {/* Right Column: Advanced Visualization */}
-            <div className="flex flex-col lg:pl-12 lg:border-l border-[#E5E0D0] justify-center pt-8 lg:pt-0">
-              <div className="bg-transparent p-4 md:p-6 relative overflow-visible group flex items-center justify-center min-h-[400px]">
+            <div className="flex flex-col lg:pl-12 lg:border-l border-[#E5E0D0] justify-center pt-2 lg:pt-0">
+              <div className="bg-transparent p-0 md:p-6 relative overflow-visible group flex items-center justify-center min-h-[300px] md:min-h-[400px]">
                 {/* Decorative background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#EA580C]/10 blur-[80px] rounded-full transition-colors duration-700 pointer-events-none"></div>
 
