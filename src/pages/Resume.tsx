@@ -77,17 +77,17 @@ export default function Resume() {
             href={currentResume.file}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-2.5 rounded-full bg-white border border-[#E5E0D0] text-[#0F172A] hover:bg-[#FAF7F2] font-medium transition-all text-sm flex items-center space-x-2 shadow-sm"
+            className="px-6 py-2.5 rounded-full bg-white border border-[#E5E0D0] text-[#0F172A] hover:bg-[#FAF7F2] font-medium transition-all text-sm flex items-center space-x-2 shadow-sm whitespace-nowrap"
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4 shrink-0" />
             <span>Open in New Tab</span>
           </a>
           <a
             href={currentResume.file}
             download
-            className="px-6 py-2.5 rounded-full bg-[#EA580C] text-white hover:bg-[#C2410C] font-medium transition-all text-sm flex items-center space-x-2 shadow-md hover:shadow-lg"
+            className="px-6 py-2.5 rounded-full bg-[#EA580C] text-white hover:bg-[#C2410C] font-medium transition-all text-sm flex items-center space-x-2 shadow-md hover:shadow-lg whitespace-nowrap"
           >
-            <Download className="w-4 h-4" />
+            <Download className="w-4 h-4 shrink-0" />
             <span>Download PDF</span>
           </a>
         </div>
