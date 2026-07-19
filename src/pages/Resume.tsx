@@ -37,12 +37,12 @@ export default function Resume() {
           </p>
 
           {/* Toggle Switch */}
-          <div className="bg-white border border-[#E5E0D0] p-1.5 rounded-full inline-flex relative shadow-sm">
-            <div className="absolute inset-0 bg-[#E5E0D0]/20 rounded-full pointer-events-none"></div>
+          <div className="bg-white border border-[#E5E0D0] p-1.5 rounded-full inline-grid grid-cols-2 relative shadow-sm min-w-[280px] mx-auto">
+            <div className="absolute inset-0 bg-[#E5E0D0]/20 rounded-full pointer-events-none z-0"></div>
             
             {/* Sliding Background */}
             <motion.div
-              className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#0F172A] rounded-full shadow-md z-0"
+              className="absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] bg-[#0F172A] rounded-full shadow-md z-10"
               initial={false}
               animate={{
                 left: selectedRegion === "australia" ? "6px" : "calc(50% + 3px)"
@@ -52,7 +52,7 @@ export default function Resume() {
 
             <button
               onClick={() => setSelectedRegion("australia")}
-              className={`relative z-10 px-4 py-2 sm:px-8 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
+              className={`relative z-20 py-2 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center justify-center space-x-2 ${
                 selectedRegion === "australia" ? "text-white" : "text-slate-500 hover:text-[#0F172A]"
               }`}
             >
@@ -61,7 +61,7 @@ export default function Resume() {
             </button>
             <button
               onClick={() => setSelectedRegion("india")}
-              className={`relative z-10 px-4 py-2 sm:px-8 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center space-x-2 ${
+              className={`relative z-20 py-2 sm:py-3 rounded-full font-sans font-semibold text-sm transition-colors duration-300 flex items-center justify-center space-x-2 ${
                 selectedRegion === "india" ? "text-white" : "text-slate-500 hover:text-[#0F172A]"
               }`}
             >

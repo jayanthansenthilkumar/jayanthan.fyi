@@ -1,6 +1,7 @@
 
 import { motion } from "framer-motion";
-import { User, Code, Database, Globe } from "lucide-react";
+import { User, Code, Database, Globe, FileText } from "lucide-react";
+import { Link } from "react-router";
 
 
 export default function About() {
@@ -30,6 +31,13 @@ export default function About() {
             Skilled in distributed systems and full-stack development, I blend analytical focus with creative problem-solving 
             to build scalable, client-centric applications aligned with AI-driven transformation goals.
           </p>
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link to="/resume" className="inline-flex px-8 py-4 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-lg hover:shadow-xl text-lg items-center space-x-3 cursor-pointer">
+            <FileText className="w-5 h-5" />
+            <span>View Resume</span>
+          </Link>
         </div>
       </motion.div>
 
