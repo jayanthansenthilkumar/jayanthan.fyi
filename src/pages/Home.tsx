@@ -7,15 +7,15 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const featuredProjects = [
     {
-      title: "PLANGO - AI Trip Planner",
-      description: "A scalable AI-based trip optimizer with real-time traffic data, boosting route accuracy and reducing latency.",
-      tags: ["Flask", "Python-ML", "SQLite", "JS"],
+      title: "Ishaa - Python AI Framework",
+      description: "Reduced web application development effort by 60% by architecting a zero-dependency ASGI-native Python framework featuring a custom ORM, JWT authentication, WebSocket support, GraphQL, and an integrated CLI.",
+      tags: ["Python", "ASGI", "GraphQL", "WebSockets"],
       status: "Production"
     },
     {
-      title: "Cargo Fleet Management System",
-      description: "IoT fleet system integrating ML load prediction and distributed data pipelines, improving utilization by 55%.",
-      tags: ["Laravel", "IoT", "Python-ML", "Arduino"],
+      title: "PLANGO - AI Trip Planner",
+      description: "Built a trip-optimisation web application that ingests real-time traffic data to generate route recommendations, improving route accuracy by 40% and reducing computed route latency by 60%.",
+      tags: ["Flask", "Python", "SQLite", "JS"],
       status: "Production"
     }
   ];
@@ -64,7 +64,7 @@ export default function Home() {
                 Senthilkumar
               </h1>
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-sans font-light max-w-lg mb-10">
-                Incoming Master's student in AI & ML at <span className="font-medium text-[#0F172A]">Adelaide University, Australia</span>. B.Tech graduate in Artificial Intelligence and Machine Learning.
+                B.Tech graduate in AI & Machine Learning (CGPA 8.080). Incoming Master's student at <span className="font-medium text-[#0F172A]">Adelaide University, Australia</span>. Seeking entry-level LLMOps, MLOps, and AI/ML Engineering opportunities in Australia, The US, and Germany.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href="#projects" className="px-7 py-3.5 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-md hover:shadow-lg text-base flex items-center space-x-2">
@@ -189,10 +189,10 @@ export default function Home() {
               <h2 className="font-serif italic text-xl tracking-tight">/about-me</h2>
             </div>
             <h3 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight">
-              Product-focused <span className="italic text-[#EA580C]">Software Engineer</span>
+              Aspiring <span className="italic text-[#EA580C]">AI & MLOps Engineer</span>
             </h3>
             <p className="text-lg text-slate-600 font-sans font-light leading-relaxed mb-6">
-              Crafting data-driven experiences grounded in proven engineering traditions. Skilled in distributed systems and full-stack development, I blend analytical focus with creative problem-solving to build scalable, client-centric applications aligned with AI-driven transformation goals.
+              Entry-level LLMOps, MLOps, and AI Engineer based in India, seeking to relocate to Australia, the US, or Germany. Experienced in delivering distributed backend systems, RESTful APIs, and full-stack applications to deploy scalable Artificial Intelligence solutions.
             </p>
             <Link to="/about" className="inline-flex items-center space-x-2 text-[#0F172A] font-semibold hover:text-[#EA580C] transition-colors border-b border-[#0F172A] hover:border-[#EA580C] pb-1">
               <span>Read Full Biography</span>

@@ -7,56 +7,48 @@ export default function Projects() {
   const projects = [
     {
       title: "PLANGO - AI Trip Planner",
-      description: "Built a scalable AI-based trip optimizer with real-time traffic data, improving route accuracy by 40% and reducing latency by 60%. Engineered predictive models for traffic and time optimization, boosting user satisfaction by 35%.",
-      tags: ["Flask", "Python-ML", "SQLite", "JS"],
-      github: "https://github.com/jayanthansenthilkumar",
+      description: "Built a trip-optimisation web application that ingests real-time traffic data to generate route recommendations, improving route accuracy by 40% and reducing computed route latency by 60%. Designed predictive logic for traffic and travel-time estimation, contributing to a 35% increase in measured user satisfaction during testing.",
+      tags: ["Flask", "Python", "SQLite", "JavaScript"],
+      github: "https://github.com/jayanthansenthilkumar/PlanGo",
+      demo: "#",
+      status: "Production"
+    },
+    {
+      title: "SPARK - Event Management Platform",
+      description: "Improved event management efficiency by 50% by architecting a role-based platform with modules for registrations, project submissions, evaluation workflows, scheduling, and approvals. Reduced administrative effort by 40% by developing centralized dashboards, automated announcements, and MySQL-backed data management.",
+      tags: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+      github: "https://github.com/jayanthansenthilkumar/Spark",
+      demo: "#",
+      status: "Production"
+    },
+    {
+      title: "Ishaa - Python AI Framework",
+      description: "Reduced web app development effort by 60% by architecting a zero-dependency ASGI-native framework with a custom ORM, JWT auth, WebSockets, GraphQL, OpenAPI, and CLI. Improved app performance and reliability by 45% via self-evolving adaptive routing, multi-reality execution, and automated test generation pipelines.",
+      tags: ["Python", "ASGI", "GraphQL", "WebSockets", "CI/CD"],
+      github: "https://github.com/jayanthansenthilkumar/Ishaa",
       demo: "#",
       status: "Production"
     },
     {
       title: "Cargo Fleet Management System",
-      description: "Designed an IoT fleet system integrating ML load prediction and distributed data pipelines, improving utilization by 55%. Implemented real-time tracking and safety monitoring pipelines, improving transport reliability and reducing logistics delays by 35%.",
-      tags: ["Laravel", "IoT", "Python-ML", "Arduino"],
+      description: "Architected an IoT-integrated fleet management system combining sensor data pipelines with load-prediction logic, improving fleet utilisation by 55%. Implemented real-time vehicle tracking and safety-monitoring pipelines, improving transport reliability and reducing logistics delays by 35%.",
+      tags: ["Laravel", "IoT", "Python", "Arduino"],
       github: "https://github.com/jayanthansenthilkumar",
       demo: "#",
       status: "Production"
     },
     {
       title: "KR Connect - Smart College ERP",
-      description: "Developed core modules for Discipline and Grievance Management using PHP, Ajax, jQuery, and MySQL, streamlining issue tracking and student record updates by 50%. Built real-time dashboards using HTML, CSS, JS, boosting load speed and efficiency by 45%.",
-      tags: ["HTML", "CSS", "JS", "PHP", "Ajax", "MySQL"],
+      description: "Developed Discipline and Grievance Management modules using PHP, Ajax, and MySQL, streamlining issue tracking and record updates by 50% for the college administration. Built real-time administrative dashboards using HTML, CSS, and JavaScript, improving page load speed and operational efficiency by 45%.",
+      tags: ["PHP", "MySQL", "Ajax", "jQuery"],
       github: "https://github.com/jayanthansenthilkumar",
-      demo: "#",
-      status: "Production"
-    },
-    {
-      title: "SupriAI — AI-Powered Browsing Intelligence",
-      description: "SupriAI is an intelligent Chrome extension that monitors your browsing behavior in real time and uses 10 Machine Learning and Deep Learning algorithms to deliver productivity predictions, learning content recommendations, anomaly detection, NLP-based content analysis, time-pattern forecasting, and personalized focus scheduling — powered by a Python Flask + SQLite + scikit-learn backend.",
-      tags: ["Python", "Flask", "SQLite", "scikit-learn", "Chrome Extension"],
-      github: "https://github.com/jayanthansenthilkumar",
-      demo: "#",
-      status: "Production"
-    },
-    {
-      title: "ISHAA - Python AI Framework",
-      description: "A lightweight, modular Python framework designed to streamline the deployment and scaling of Artificial Intelligence models.",
-      tags: ["Python", "AI", "Framework"],
-      github: "https://github.com/jayanthansenthilkumar",
-      demo: "#",
+      demo: "https://krconnect.mkce.ac.in",
       status: "Production"
     },
     {
       title: "Personal Portfolio",
       description: "A high-performance, responsive personal portfolio built with React Router v7, Tailwind CSS, and Framer Motion to showcase software engineering projects and technical articles.",
       tags: ["React Router v7", "Tailwind CSS", "TypeScript"],
-      github: "https://github.com/jayanthansenthilkumar",
-      demo: "#",
-      status: "Production"
-    },
-    {
-      title: "Spark - Event Management",
-      description: "A comprehensive event management platform streamlining the registration, ticketing, and real-time coordination of large-scale events.",
-      tags: ["Web Development", "Management System"],
       github: "https://github.com/jayanthansenthilkumar",
       demo: "#",
       status: "Production"

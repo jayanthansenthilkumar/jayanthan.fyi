@@ -6,9 +6,37 @@ import { Link } from "react-router";
 
 export default function About() {
   const skills = [
-    { name: "Languages", icon: Globe, items: ["Python","Golang", "HTML", "CSS", "JavaScript", "PHP"] },
-    { name: "Frameworks", icon: Code, items: ["Laravel", "jQuery", "Ajax", "React",  ] },
-    { name: "Tools", icon: Database, items: ["GitHub", "Git", "Docker", "Kubernetes", "MySQL", "SAP ABAP HANA"] },
+    { 
+      name: "Core Engineering", 
+      icon: Code, 
+      items: [
+        "Python, Java, PHP, JS, HTML/CSS",
+        "Laravel, Flask, React",
+        "MySQL, SQLite",
+        "REST APIs, MVC, JWT Authentication"
+      ] 
+    },
+    { 
+      name: "Enterprise & AI", 
+      icon: Database, 
+      items: [
+        "SAP ABAP Cloud & BTP",
+        "SAP HANA Cloud & ABAP RAP",
+        "Applied ML Feature Design",
+        "Predictive Modelling",
+        "Data-Driven Decision Logic"
+      ] 
+    },
+    { 
+      name: "Tools & Agile", 
+      icon: Globe, 
+      items: [
+        "Git, GitHub, GitHub Actions (CI/CD)",
+        "Agile, SDLC, Tech Documentation",
+        "System & Database Design",
+        "IoT Integration (Arduino)"
+      ] 
+    }
   ];
 
   return (
@@ -16,28 +44,57 @@ export default function About() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-16 text-center max-w-3xl mx-auto"
+        className="mb-16 max-w-6xl mx-auto"
       >
-        <div className="flex items-center justify-center space-x-3 text-[#EA580C] mb-6">
-          <User className="h-6 w-6" />
-          <h2 className="font-serif italic text-xl tracking-tight">/about-me</h2>
-        </div>
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
-          Product-focused <span className="italic text-[#EA580C]">Software Engineer</span>
-        </h1>
-        <div className="prose prose-lg mx-auto text-slate-600 font-sans font-light text-left md:text-center">
-          <p>
-            Product-focused Software Engineer crafting data-driven experiences grounded in proven engineering traditions. 
-            Skilled in distributed systems and full-stack development, I blend analytical focus with creative problem-solving 
-            to build scalable, client-centric applications aligned with AI-driven transformation goals.
-          </p>
-        </div>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start w-full">
+          
+          {/* Left Column: Title & Resume Button */}
+          <div className="flex-1 lg:max-w-md w-full flex flex-col items-start text-left">
+            <div className="flex items-center space-x-3 text-[#EA580C] mb-6">
+              <User className="h-6 w-6" />
+              <h2 className="font-serif italic text-xl tracking-tight">/about-me</h2>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-[#0F172A] mb-8 leading-tight">
+              Aspiring <br className="hidden lg:block"/>
+              <span className="italic text-[#EA580C]">AI & MLOps Engineer</span>
+            </h1>
+            <div className="mt-10 hidden lg:flex">
+              <Link to="/resume" className="inline-flex px-8 py-4 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-lg hover:shadow-xl text-lg items-center space-x-3 cursor-pointer">
+                <FileText className="w-5 h-5" />
+                <span>View Resume</span>
+              </Link>
+            </div>
+          </div>
 
-        <div className="mt-10 flex justify-center">
-          <Link to="/resume" className="inline-flex px-8 py-4 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-lg hover:shadow-xl text-lg items-center space-x-3 cursor-pointer">
-            <FileText className="w-5 h-5" />
-            <span>View Resume</span>
-          </Link>
+          {/* Right Column: Bio & Skills */}
+          <div className="flex-1 w-full">
+            <div className="prose prose-lg text-slate-600 font-sans font-light text-left leading-relaxed max-w-none">
+              <p>
+                Entry-level LLMOps, MLOps, and Machine Learning Engineer based in India, seeking to relocate to Australia, the United States, or Germany. Delivered distributed backend systems, RESTful APIs, and full-stack applications 
+                using PHP, Laravel, Python, and MySQL, including a 30% reduction in backend latency and a 40% improvement 
+                in API reliability during an industrial trainee placement. Built three end-to-end projects spanning AI-assisted trip 
+                optimisation, IoT-enabled fleet management, and enterprise ERP systems. Completed a Bachelor of Technology 
+                in Artificial Intelligence and Machine Learning (CGPA 8.08) while building applied machine learning and cloud 
+                deployment capability. Brings strong engineering fundamentals and a genuine commitment to scaling AI systems.
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap justify-start gap-2">
+              {["Backend Development", "Full-Stack Web Development", "RESTful API Design", "System Design", "Database Design & Optimisation", "Problem Solving", "Analytical & Critical Thinking", "Technical Communication", "Cross Functional Collaboration", "Agile-Aligned Delivery", "Continuous Learning"].map((skill) => (
+                <span key={skill} className="px-4 py-2 rounded-full border border-[#E5E0D0] text-slate-600 text-sm font-sans font-medium bg-white shadow-sm text-left">
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-10 flex justify-start lg:hidden">
+              <Link to="/resume" className="inline-flex px-8 py-4 rounded-full bg-[#0F172A] hover:bg-[#1E293B] text-white font-medium transition-all shadow-lg hover:shadow-xl text-lg items-center space-x-3 cursor-pointer">
+                <FileText className="w-5 h-5" />
+                <span>View Resume</span>
+              </Link>
+            </div>
+          </div>
+
         </div>
       </motion.div>
 
@@ -85,7 +142,7 @@ export default function About() {
                   <span className="text-xs font-sans font-medium text-slate-400 uppercase">2022 - 2026</span>
                 </div>
                 <div className="text-slate-500 text-sm">M. Kumarasamy College of Engineering</div>
-                <div className="text-slate-500 font-sans mt-1 text-xs font-medium">CGPA: 8.12</div>
+                <div className="text-slate-500 font-sans mt-1 text-xs font-medium">CGPA: 8.08</div>
               </div>
             </div>
 
@@ -124,7 +181,7 @@ export default function About() {
                 <img src="/mkce.jpg" alt="MKCE" className="w-full aspect-[4/3] object-cover rounded-xl border border-[#E5E0D0] shadow-sm mb-4 bg-slate-100" onError={(e) => { e.currentTarget.style.display = 'none' }} />
                 <h4 className="text-xl font-serif text-[#0F172A]">B.Tech AI & ML</h4>
                 <p className="text-slate-500 font-sans mt-1 text-xs">M. Kumarasamy College of Engineering</p>
-                <p className="text-slate-500 font-sans mt-1 text-[11px] font-bold tracking-widest uppercase">CGPA: 8.12</p>
+                <p className="text-slate-500 font-sans mt-1 text-[11px] font-bold tracking-widest uppercase">CGPA: 8.08</p>
               </div>
 
               {/* Empty Col 4 */}
@@ -268,10 +325,11 @@ export default function About() {
                   </div>
                   
                   {/* List Items */}
-                  <ul className="space-y-4 w-full mt-2">
+                  <ul className="space-y-4 w-full mt-4 px-2 text-left">
                     {skill.items.map((item) => (
-                      <li key={item} className="flex items-center justify-center font-sans font-medium text-[17px] opacity-80 tracking-wide">
-                        {item}
+                      <li key={item} className="flex items-start font-sans font-medium text-[16px] opacity-85 tracking-wide leading-snug">
+                        <span className="mr-3 mt-2 w-1.5 h-1.5 rounded-full bg-current opacity-60 shrink-0"></span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -296,11 +354,58 @@ export default function About() {
             <h4 className="text-2xl font-serif text-[#0F172A] mt-2">Software Developer Trainee</h4>
             <p className="text-slate-500 font-sans mt-1 mb-4">Technology Innovation Hub, MKCE</p>
             <ul className="text-slate-600 font-sans font-light leading-relaxed list-disc ml-5 space-y-2">
-              <li>Built <strong>scalable distributed</strong> backend with PHP & SQL, reducing latency by <strong>30%</strong> and throughput.</li>
-              <li>Developed RESTful APIs to improve communication and system reliability by <strong>40%</strong>.</li>
-              <li>Optimized queries and indexing, cutting processing time by <strong>35%</strong> and enhancing performance.</li>
+              <li>Engineered a distributed backend system using PHP and SQL to support a growing user base, reducing service latency by <strong>30%</strong> and increasing overall system throughput.</li>
+              <li>Designed and developed RESTful APIs to standardise inter-service communication, improving system reliability by <strong>40%</strong> and reducing integration errors across connected modules.</li>
+              <li>Optimised MySQL queries and indexing strategy to resolve a data processing bottleneck, cutting processing time by <strong>35%</strong> and improving application responsiveness under load.</li>
             </ul>
           </div>
+        </div>
+      </div>
+
+      {/* CERTIFICATIONS & LEADERSHIP SECTION */}
+      <div className="mt-32 max-w-6xl mx-auto border-t border-[#E5E0D0] pt-24 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+          
+          {/* Certifications */}
+          <div>
+            <h3 className="text-3xl font-serif text-[#0F172A] mb-10"><span className="italic text-[#EA580C]">Certifications</span></h3>
+            <ul className="space-y-6">
+              {[
+                { title: "GitHub Foundations", issuer: "GitHub" },
+                { title: "SAP - ABAP Backend Development", issuer: "SAP" },
+                { title: "Google Play & Unity - Associate Game Development", issuer: "Unity Technologies" }
+              ].map((cert) => (
+                <li key={cert.title} className="flex items-start space-x-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#EA580C] mt-2.5 shrink-0" />
+                  <div>
+                    <h4 className="text-lg font-serif text-[#0F172A]">{cert.title}</h4>
+                    <p className="text-slate-500 font-sans text-sm">{cert.issuer}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Leadership & Achievements */}
+          <div>
+            <h3 className="text-3xl font-serif text-[#0F172A] mb-10">Leadership & <span className="italic text-[#EA580C]">Achievements</span></h3>
+            <ul className="space-y-6">
+              {[
+                { title: "Finalist", event: "PECHACKS 2.0 Hackathon" },
+                { title: "Guest Lecturer", event: '"Git vs GitHub" Workshop - Panimalar Engineering College, Chennai' },
+                { title: "Recipient", event: "Student of the Month - Technical Leadership & Performance" }
+              ].map((ach) => (
+                <li key={ach.title} className="flex items-start space-x-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#0F172A] mt-2.5 shrink-0" />
+                  <div>
+                    <h4 className="text-lg font-serif text-[#EA580C]">{ach.title}</h4>
+                    <p className="text-slate-600 font-sans text-sm">{ach.event}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </div>
 
