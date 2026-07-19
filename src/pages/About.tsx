@@ -268,13 +268,13 @@ export default function About() {
         <h3 className="text-3xl sm:text-4xl font-serif text-[#0F172A] mb-20 text-center relative z-10">Technical <span className="italic text-[#EA580C]">Skills</span></h3>
         
         <div className="relative px-4 sm:px-12 lg:px-16 pt-8 pb-16">
-          {/* Desktop Wire SVG - Tighter droop */}
-          <svg className="absolute top-[20px] left-0 w-full h-[150px] pointer-events-none hidden md:block z-0" viewBox="0 0 1000 200" preserveAspectRatio="none">
+          {/* Desktop Wire SVG */}
+          <svg className="absolute top-0 left-0 w-full h-[100px] pointer-events-none hidden md:block z-0" viewBox="0 0 1000 100" preserveAspectRatio="none">
             <path 
-              d="M -50 40 Q 83 100, 166 60 Q 333 120, 500 60 Q 666 120, 833 60 Q 916 100, 1050 40" 
+              d="M -50 30 Q 83 45, 166 10 Q 333 45, 500 10 Q 666 45, 833 10 Q 916 45, 1050 30" 
               fill="none" 
               stroke="#1E293B" 
-              strokeWidth="3.5" 
+              strokeWidth="3" 
               strokeLinecap="round"
             />
           </svg>
@@ -301,7 +301,7 @@ export default function About() {
                   className={`relative w-full min-h-[360px] sm:min-h-[auto] sm:aspect-[3/4] ${color} ${rotation} shadow-[0_8px_30px_rgb(0,0,0,0.06)] px-6 py-12 flex flex-col items-center hover:-translate-y-2 hover:shadow-[0_15px_40px_rgb(0,0,0,0.1)] transition-all duration-300 ease-out`}
                 >
                   {/* Mobile Wire */}
-                  <div className="absolute top-2 left-[-15%] right-[-15%] h-[3px] bg-[#1E293B] md:hidden z-0 rounded-full" />
+                  <div className="absolute top-[-24px] left-[-15%] right-[-15%] h-[3px] bg-[#1E293B] md:hidden z-0 rounded-full" />
                   
                   {/* Binder Clip */}
                   <div className="absolute -top-[28px] left-1/2 -translate-x-1/2 flex flex-col items-center z-20 drop-shadow-md">

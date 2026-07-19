@@ -59,7 +59,7 @@ export default function Home() {
                 <span className="w-4 h-[2px] bg-[#EA580C]"></span>
                 <span>AI & ML Engineer</span>
               </div>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-serif text-[#0F172A] leading-[1.05] tracking-tight mb-8 break-words hyphens-auto">
                 <span className="italic text-[#EA580C]">Jayanthan</span><br />
                 Senthilkumar
               </h1>
