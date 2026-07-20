@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { FileText, ArrowRight, Calendar, Clock, User, MapPin } from "lucide-react";
+import { FileText, ArrowRight, Calendar, Clock, User, MapPin, Share2 } from "lucide-react";
 import { Link } from "react-router";
 import { useState, useEffect } from "react";
 
@@ -23,6 +23,32 @@ export default function Blogs() {
         setIsLoading(false);
       });
   }, []);
+
+  const handleShare = async (e: React.MouseEvent, post: any) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const shareData = {
+      title: post.title,
+      text: `Check out this article: ${post.title}`,
+      url: post.link,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(post.link);
+        alert("Link copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy:", err);
+      }
+    }
+  };
 
   return (
     <div className="py-20 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 pt-32">
@@ -102,7 +128,14 @@ export default function Blogs() {
                       </p>
                     </div>
                     <div className="flex justify-between items-center border-t border-[#E5E0D0] pt-4 mt-2 relative z-20">
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <button 
+                          onClick={(e) => handleShare(e, post)}
+                          className="p-1.5 rounded-full border border-[#E5E0D0] bg-white hover:border-[#EA580C] hover:text-[#EA580C] text-slate-500 transition-colors cursor-pointer mr-2"
+                          title="Share article"
+                        >
+                          <Share2 className="w-3.5 h-3.5" />
+                        </button>
                         {post.categories && post.categories.slice(0, 2).map((category: string) => (
                           <span key={category} className="px-3 py-1 bg-white border border-[#E5E0D0] text-slate-500 rounded-full text-[10px] font-medium uppercase tracking-wider">{category}</span>
                         ))}

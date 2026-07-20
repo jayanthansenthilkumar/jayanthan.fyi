@@ -30,6 +30,29 @@ export default function Article() {
       });
   }, [slug]);
 
+  const handleShare = async () => {
+    const shareData = {
+      title: article?.title || "Article",
+      text: `Check out this article: ${article?.title}`,
+      url: window.location.href,
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        console.error("Error sharing:", err);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert("Link copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy:", err);
+      }
+    }
+  };
+
   if (isLoading) {
     return (
       <div className="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 bg-[#F6F4EB] min-h-screen flex items-center justify-center">
@@ -92,7 +115,11 @@ export default function Article() {
               <p className="text-slate-500 text-sm font-sans">Author</p>
             </div>
           </div>
-          <button className="p-2 rounded-full border border-[#E5E0D0] hover:border-[#EA580C] hover:text-[#EA580C] text-slate-500 transition-colors">
+          <button 
+            onClick={handleShare}
+            className="p-2 rounded-full border border-[#E5E0D0] hover:border-[#EA580C] hover:text-[#EA580C] text-slate-500 transition-colors cursor-pointer"
+            title="Share this article"
+          >
             <Share2 className="w-5 h-5" />
           </button>
         </div>
@@ -115,8 +142,22 @@ export default function Article() {
         <div className="mt-16 pt-8 border-t border-[#E5E0D0] flex justify-between items-center">
           <p className="font-sans text-slate-500">Share this article</p>
           <div className="flex space-x-4">
-            <button className="text-slate-400 hover:text-[#EA580C] font-medium uppercase tracking-wider text-sm transition-colors">Twitter</button>
-            <button className="text-slate-400 hover:text-[#EA580C] font-medium uppercase tracking-wider text-sm transition-colors">LinkedIn</button>
+            <a 
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-[#EA580C] font-medium uppercase tracking-wider text-sm transition-colors cursor-pointer"
+            >
+              Twitter
+            </a>
+            <a 
+              href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(article.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-[#EA580C] font-medium uppercase tracking-wider text-sm transition-colors cursor-pointer"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </motion.div>
